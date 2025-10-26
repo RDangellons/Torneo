@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Virtual Arena | Torneos</title>
+  <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+
+  <!-- Pantalla de carga -->
+  <div id="loader">
+    <img src="/imganes/Logo.png" alt="Virtual Arena Logo" class="loader-logo">
+    <p>Cargando...</p>
+  </div>
+
+  <!-- Contenido principal -->
+  <div id="content" class="hidden">
+
+    <!-- HEADER -->
+    <header>
+      <div class="logo">
+        <img src="/imganes/Logo.png" alt="Virtual Arena Logo">
+        <h1>Virtual Arena</h1>
+      </div>
+
+      <!-- Menú responsive -->
+      <nav id="nav-links">
+        <a href="index.html">Inicio</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <button id="menu-btn" class="menu-btn">☰</button>
+
+      <button class="btn-registrar">Regístrate</button>
+    </header>
+
+    <!-- SECCIÓN DE INSCRIPCIÓN -->
+<section id="inscripcion" class="inscripcion">
+  <h2>Inscríbete al Torneo</h2>
+
+  <form id="formInscripcion">
+    <label for="nombre">Nombre completo:</label>
+    <input type="text" id="nombre" placeholder="Tu nombre completo" required>
+
+    <label for="gamerTag">Gamer Tag:</label>
+    <input type="text" id="gamerTag" placeholder="Tu nombre en el juego" required>
+
+    <label for="torneoSelect">Selecciona torneo:</label>
+    <select id="torneoSelect" required>
+      <option value="">Selecciona...</option>
+      <option value="FIFA 25 Ultimate Cup">FIFA 25 Ultimate Cup</option>
+      <option value="Virtual Champions League">Virtual Champions League</option>
+    </select>
+
+    <button type="submit" class="btn-hero">Registrar</button>
+  </form>
+</section>
+
+<!-- TABLA DE PUNTOS -->
+<section id="tabla" class="tabla">
+  <h2>Tabla de Puntos</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Jugador</th>
+        <th>Gamer Tag</th>
+        <th>Torneo</th>
+        <th>Puntos</th>
+      </tr>
+    </thead>
+    <tbody id="tablaBody"></tbody>
+  </table>
+</section>
+    <!-- CONTACTO -->
+    <section id="contacto" class="contacto">
+      <h2>Contáctanos</h2>
+      <p>Síguenos en nuestras redes o escríbenos para más información.</p>
+      <div class="redes">
+        <a href="#"><img src="facebook.svg" alt="Facebook"></a>
+        <a href="#"><img src="instagram.svg" alt="Instagram"></a>
+        <a href="#"><img src="twitter.svg" alt="Twitter"></a>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>© 2025 Virtual Arena — Tu liga, tu gloria</p>
+    </footer>
+  </div>
+
+  <!-- Botón flotante -->
+  <button id="btn-top">↑</button>
+
+  <script src="/js/torneos.js"></script>
+  <script src="/js/loader.js"></script>
+</body>
+</html>
