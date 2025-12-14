@@ -17,6 +17,7 @@ type StandingRow = {
   points: number;
 };
 
+
 export default function Home() {
   // 2. Tipar el estado
   const [standings, setStandings] = useState<StandingRow[]>([]);

@@ -64,15 +64,14 @@ export async function GET() {
   }catch (error: unknown) {
     console.error(error);
 
-    let message = 'Error desconocido';
-
-    if (error instanceof Error) {
-      message = error.message;
-    }
+    const message =
+      error instanceof Error
+        ? error.message
+        : 'Error inesperado en el servidor';
 
     return Response.json(
       { ok: false, error: message },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
