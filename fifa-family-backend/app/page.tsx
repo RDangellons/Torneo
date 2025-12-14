@@ -1,18 +1,25 @@
-// app/page.js
 'use client';
 
 import { useEffect, useState } from 'react';
 
-// Mapa de IDs de dueño -> nombre
-const OWNER_NAMES = {
-  1: 'Angel',
-  2: 'Juan',
-  3: 'Diego',
-  4: 'Emiliano',
+// 1. Tipo de cada fila de la tabla
+type StandingRow = {
+  team_id: number;
+  name: string;
+  owner_name: string;
+  played: number;
+  wins: number;
+  draws: number;
+  losses: number;
+  goals_for: number;
+  goals_against: number;
+  goal_diff: number;
+  points: number;
 };
 
 export default function Home() {
-  const [standings, setStandings] = useState([]);
+  // 2. Tipar el estado
+  const [standings, setStandings] = useState<StandingRow[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -37,7 +44,7 @@ export default function Home() {
 
   return (
     <main className="page-container">
-      <h1 className="title">FIFA Family Tournament</h1>
+      <h1 className="title">FIFA FAMILY TOURNAMENT</h1>
       <p className="subtitle">
         Tabla de posiciones en tiempo real (36 equipos)
       </p>
@@ -64,28 +71,29 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-  {standings.map((team, index) => (
-    <tr key={team.team_id ?? index}>
-      <td>{index + 1}</td>
-      <td>{team.name}</td>
-      <td>{team.owner_name}</td>
-      <td>{team.played}</td>
-      <td>{team.wins}</td>
-      <td>{team.draws}</td>
-      <td>{team.losses}</td>
-      <td>{team.goals_for}</td>
-      <td>{team.goals_against}</td>
-      <td>{team.goal_diff}</td>
-      <td>{team.points}</td>
-    </tr>
-  ))}
-</tbody>
-
+                {standings.map((team, index) => (
+                  // 3. Key única usando el id del equipo
+                  <tr key={team.team_id ?? index}>
+                    <td>{index + 1}</td>
+                    <td>{team.name}</td>
+                    <td>{team.owner_name}</td>
+                    <td>{team.played}</td>
+                    <td>{team.wins}</td>
+                    <td>{team.draws}</td>
+                    <td>{team.losses}</td>
+                    <td>{team.goals_for}</td>
+                    <td>{team.goals_against}</td>
+                    <td>{team.goal_diff}</td>
+                    <td>{team.points}</td>
+                  </tr>
+                ))}
+              </tbody>
             </table>
           </div>
+
           <p className="hint">
             En cada partido sólo capturas los goles y el ganador, y aquí se
-            actualiza todo automático. 🔥
+            actualiza todo automático 🔥
           </p>
         </div>
       )}

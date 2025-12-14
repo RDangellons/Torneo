@@ -61,8 +61,18 @@ export async function GET() {
     `;
 
     return Response.json({ ok: true, data: rows });
-  } catch (error) {
+  }catch (error: unknown) {
     console.error(error);
-    return Response.json({ ok: false, error: error.message }, { status: 500 });
+
+    let message = 'Error desconocido';
+
+    if (error instanceof Error) {
+      message = error.message;
+    }
+
+    return Response.json(
+      { ok: false, error: message },
+      { status: 500 }
+    );
   }
 }
